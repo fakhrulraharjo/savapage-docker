@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  savapage-ubuntu18.04:
+    ports:
+      - '8671:8631'
+      - '8672:8632'
+      - '8673:631'
+    volumes:
+      - './:/workspace'
+      - '/opt/fakhrulraharjo/persistent-svapage/server.properties:/opt/savapage/server/server.properties'
+      - '/opt/fakhrulraharjo/persistent-svapage/cupsd.conf:/etc/cups/cupsd.conf'
+      - '/opt/fakhrulraharjo/persistent-svapage/cups-browsed.conf:/etc/cups/cups-browsed.conf'
+      - '/opt/fakhrulraharjo/persistent-svapage/wireguard-route:/etc/network/if-up.d/wireguard-route'
+    environment:
+      - CUPSADMIN=admin
+      - CUPSPASSWORD=admin
+      - TZ="Asia/Jakarta"
+      - SAVA_VERSION=1.5.0-rc
+    image: 'savapage-ubuntu18.04:latest'
+    restart: always
