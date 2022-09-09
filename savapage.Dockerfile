@@ -8,7 +8,8 @@ ENV CUPSPASSWORD password
 RUN apt-get update && \
     apt-get -y install cups cups-bsd poppler-utils qpdf imagemagick wget gnupg \
     software-properties-common avahi-daemon avahi-discover libnss-mdns \
-    binutils wget curl supervisor openssh-server debianutils perl gzip 
+    binutils wget curl supervisor openssh-server debianutils perl gzip \
+    iproute2
     
 
 RUN apt-get install cpio default-jdk -y
